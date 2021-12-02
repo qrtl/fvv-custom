@@ -1,7 +1,7 @@
 # Copyright 2021 Quartile Limited
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 {
-    "name": "Report Common",
+    "name": "Add Image Column in Purchase Order Line",
     "version": "14.0.1.0.0",
     "category": "Purchase",
     "website": "https://www.quartile.co",
