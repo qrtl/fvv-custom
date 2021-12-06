@@ -14,8 +14,9 @@ class PurchaseOrderLine(models.Model):
     )
 
     def _compute_image(self):
-        purchase_request = (
-            self.purchase_request_purchase_order_line_rel.purchase_request_line_id
-        )
-        if purchase_request.image:
-            self.image = purchase_request.image
+        for line in self:
+            for request_line in line.purchase_request_lines:
+                if request_line.image:
+                    line.image = request_line.image
+                if not request_line.image:
+                    continue
