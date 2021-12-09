@@ -8,7 +8,7 @@
     "author": "Quartile Limited",
     "license": "AGPL-3",
     "installable": True,
-    "depends": ["purchase", "purchase_request"],
+    "depends": ["web", "purchase", "purchase_request"],
     "data": [
         "views/purchase_order_line_views.xml",
         "views/purchase_request_views.xml",

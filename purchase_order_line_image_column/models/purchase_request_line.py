@@ -7,4 +7,11 @@ from odoo import fields, models
 class PurchaseRequestLine(models.Model):
     _inherit = "purchase.request.line"
 
-    image = fields.Binary(string="Image", attachment=True)
+    image_ids = fields.Many2many(
+        comodel_name="ir.attachment",
+        relation="purchase_request_line_ir_attachment_rel",
+        column1="purchase_request_line_id",
+        column2="attachment_id",
+        attachment=True,
+        string="Attachments",
+    )

@@ -9,15 +9,17 @@
                 expr="//form/sheet/notebook/page/field[@name='line_ids']/tree/field[@name='name']"
                 position="after"
             >
-                <field name="image" widget='image' class="oe_avatar" />
+                <field name="image_ids" widget="many2many_binary" class="o_attachments" />
             </xpath>
             <xpath
                 expr="//form/sheet/notebook/page/field[@name='line_ids']/form/sheet/group[@name='main']/group/field[@name='name']"
                 position="after"
             >
                 <field
-                    name="image"
+                    name="image_ids"
+                    widget="many2many_binary"
                     attrs="{'readonly': [('is_editable','=', False)]}"
+                    class="o_attachments"
                 />
             </xpath>
         </field>
