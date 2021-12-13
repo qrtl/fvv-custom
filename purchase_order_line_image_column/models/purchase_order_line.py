@@ -17,6 +17,10 @@ class PurchaseOrderLine(models.Model):
     @api.depends("product_id")
     def _compute_image(self):
         for line in self:
-            images = (req_line.image_ids for req_line in line.purchase_request_lines if req_line.image_ids)
+            images = (
+                req_line.image_ids
+                for req_line in line.purchase_request_lines
+                if req_line.image_ids
+            )
             for image in images:
                 line.images = image if image else False
