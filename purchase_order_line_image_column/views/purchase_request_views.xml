@@ -9,7 +9,11 @@
                 expr="//form/sheet/notebook/page/field[@name='line_ids']/tree/field[@name='name']"
                 position="after"
             >
-                <field name="image_ids" widget="many2many_binary" class="o_attachments" />
+                <field
+                    name="image_ids"
+                    widget="many2many_binary"
+                    class="o_attachments"
+                />
             </xpath>
             <xpath
                 expr="//form/sheet/notebook/page/field[@name='line_ids']/form/sheet/group[@name='main']/group/field[@name='name']"
