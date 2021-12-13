@@ -1,0 +1,1 @@
+This module adds image column in purchase_order_line view.

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_purchase_request_form_inherit_image" model="ir.ui.view">
+        <field name="name">purchase.request.form</field>
+        <field name="model">purchase.request</field>
+        <field name="inherit_id" ref="purchase_request.view_purchase_request_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//form/sheet/notebook/page/field[@name='line_ids']/tree/field[@name='name']"
+                position="after"
+            >
+                <field
+                    name="image_ids"
+                    widget="many2many_binary"
+                    class="o_attachments"
+                />
+            </xpath>
+            <xpath
+                expr="//form/sheet/notebook/page/field[@name='line_ids']/form/sheet/group[@name='main']/group/field[@name='name']"
+                position="after"
+            >
+                <field
+                    name="image_ids"
+                    widget="many2many_binary"
+                    attrs="{'readonly': [('is_editable','=', False)]}"
+                    class="o_attachments"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
