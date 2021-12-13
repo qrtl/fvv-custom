@@ -4,11 +4,11 @@
     "name": "Purchase Request Line Image",
     "version": "14.0.1.0.0",
     "category": "Purchase",
-    "website": "https://www.quartile.co/",
+    "website": "https://www.quartile.co",
     "author": "Quartile Limited",
     "license": "LGPL-3",
     "installable": True,
-    "depends": ["purchase_request", "web_widget_open_tab"],
+    "depends": ["purchase_request"],
     "data": [
         "security/ir.model.access.csv",
         "views/item_image_views.xml",

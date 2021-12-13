@@ -3,9 +3,12 @@
     <record id="purchase_order_form" model="ir.ui.view">
         <field name="name">purchase.order.form</field>
         <field name="model">purchase.order</field>
-        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="after">
+            <xpath
+                expr="//field[@name='order_line']/tree/field[@name='name']"
+                position="after"
+            >
                 <field name="item_image_count" string=" " />
                 <button
                     name="action_get_item_image_view"
@@ -14,11 +17,6 @@
                     icon="fa-paperclip"
                 />
             </xpath>
-            <!-- <xpath expr="//field[@name='order_line']/form//field[@name='analytic_tag_ids']/.." position="after">
-                <group>
-                    <field name="item_image_ids" context="{'default_name': name, 'default_product_id': product_id}" mode="tree" nolabel="1"/>
-                </group>
-            </xpath> -->
         </field>
     </record>
 </odoo>
