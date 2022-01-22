@@ -1,4 +1,4 @@
-# Copyright 2021 Quartile Limited
+# Copyright 2021-2022 Quartile Limited
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 from odoo import fields, models
@@ -25,9 +25,7 @@ class PurchaseOrderLine(models.Model):
             "purchase_request_line_image.action_item_image"
         )
         request_lines = self.purchase_request_lines
-        res["domain"] = [
-            ("request_line_ids", "in", request_lines.ids)
-        ]
+        res["domain"] = [("request_line_ids", "in", request_lines.ids)]
         if request_lines:
             res["context"] = {
                 "default_name": request_lines[0].name,
