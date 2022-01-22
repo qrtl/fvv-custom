@@ -13,25 +13,27 @@ class PurchaseOrderLine(models.Model):
 
     def _compute_item_image_count(self):
         for line in self:
-            if line.purchase_request_lines:
-                request_lines = line.purchase_request_lines
-                line.item_image_count = len(request_lines.mapped("item_image_ids"))
+            if not line.purchase_request_lines:
+                line.item_image_count = 0
+                continue
+            request_lines = line.purchase_request_lines
+            line.item_image_count = len(request_lines.mapped("item_image_ids"))
 
     def action_get_item_image_view(self):
         self.ensure_one()
         res = self.env["ir.actions.act_window"]._for_xml_id(
             "purchase_request_line_image.action_item_image"
         )
-        if self.purchase_request_lines:
-            res["domain"] = [
-                ("request_line_ids", "in", self.purchase_request_lines.ids)
-            ]
-            request_line = self.purchase_request_lines[0]
+        request_lines = self.purchase_request_lines
+        res["domain"] = [
+            ("request_line_ids", "in", request_lines.ids)
+        ]
+        if request_lines:
             res["context"] = {
-                "default_name": request_line.name,
-                "default_product_id": request_line.product_id.id
-                if request_line.product_id
+                "default_name": request_lines[0].name,
+                "default_product_id": request_lines[0].product_id.id
+                if request_lines[0].product_id
                 else False,
-                "default_request_line_ids": [(4, request_line.id)],
+                "default_request_line_ids": [(4, request_lines[0].id)],
             }
         return res
