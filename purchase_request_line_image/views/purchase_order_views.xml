@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="purchase_order_form" model="ir.ui.view">
+        <field name="name">purchase.order.form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='order_line']/tree/field[@name='name']"
+                position="after"
+            >
+                <field name="item_image_count" string=" " />
+                <button
+                    name="action_get_item_image_view"
+                    string="View Images"
+                    type="object"
+                    icon="fa-paperclip"
+                    attrs="{'invisible':[('item_image_count','=',0)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
