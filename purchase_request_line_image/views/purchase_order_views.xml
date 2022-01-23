@@ -9,13 +9,17 @@
                 expr="//field[@name='order_line']/tree/field[@name='name']"
                 position="after"
             >
-                <field name="item_image_count" string=" " />
+                <field
+                    name="item_image_count"
+                    string=" "
+                    attrs="{'invisible':[('purchase_request_lines','=',[])]}"
+                />
                 <button
                     name="action_get_item_image_view"
                     string="View Images"
                     type="object"
                     icon="fa-paperclip"
-                    attrs="{'invisible':[('item_image_count','=',0)]}"
+                    attrs="{'invisible':[('purchase_request_lines','=',[])]}"
                 />
             </xpath>
         </field>
